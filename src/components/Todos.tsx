@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import   { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo, updateTodo } from "../features/todo/todoSlice";
 
+interface Todo {
+  id: number;
+  text: string;
+}
 const Todos = () => {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
@@ -18,7 +22,7 @@ const Todos = () => {
   return (
     <>
       <ul className="list-none mx-4 sm:mx-8 md:mx-12 lg:mx-24 xl:mx-32">
-        {todos.map((todo) => (
+        {todos.map((todo:Todo) => (
           <li
             className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-800 px-4 py-3 rounded-md shadow-lg w-full"
             key={todo.id}

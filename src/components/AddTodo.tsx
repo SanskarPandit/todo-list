@@ -6,7 +6,7 @@ const AddTodo = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  const addTodoHandler = (e) => {
+  const addTodoHandler = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim()) {
       dispatch(addTodo(input.trim()));
